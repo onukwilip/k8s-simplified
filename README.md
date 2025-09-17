@@ -1,3 +1,14 @@
+<p align="center">
+  <img src="./assets/k8s-simplified.png" alt="k8s-simplified" />
+</p>
+
+<p align="center">
+  <a href="#license"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://github.com/onukwilip/k8s-simplified/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
+  <a href="https://github.com/onukwilip/k8s-simplified/issues"><img src="https://img.shields.io/github/issues/onukwilip/k8s-simplified.svg" alt="Issues"></a>
+  <a href="https://github.com/onukwilip/k8s-simplified"><img src="https://img.shields.io/github/stars/onukwilip/k8s-simplified.svg?style=social&label=Star" alt="GitHub Stars"></a>
+</p>
+
 # 🚀 k8s-simplified
 
 **k8s-simplified** is an open-source project that makes deploying apps to Kubernetes feel as simple as deploying to Vercel, Render, or Netlify — **but without the high cloud costs** ⚡.
