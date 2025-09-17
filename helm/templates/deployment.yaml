@@ -29,14 +29,14 @@ spec:
                       readinessProbe:
                         httpGet:
                             path: {{ .Values.healthCheck.path }}
-                            port: {{ .Values.healthCheck.port }}
+                            port: {{ .Values.port }}
                         initialDelaySeconds: 60
                         periodSeconds: 10
                         failureThreshold: 5
                       livenessProbe:
                         httpGet:
                             path: {{ .Values.healthCheck.path }}
-                            port: {{ .Values.healthCheck.port }}
+                            port: {{ .Values.port }}
                         initialDelaySeconds: 30
                         periodSeconds: 10
                         failureThreshold: 5

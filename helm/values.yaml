@@ -17,7 +17,6 @@ image:
 # Probes
 healthCheck:
   path: "/healthz"
-  port: 8080
 
 # Service
 protocol: "TCP"
