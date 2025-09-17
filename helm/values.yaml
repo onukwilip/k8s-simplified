@@ -1,5 +1,5 @@
 # App identity
-name: "my-app"
+name: "k8s-simplified"
 environment: "default" # namespace
 
 # Availability and sizing
@@ -8,23 +8,19 @@ appSize: "small" # dev | small | medium | large | heavy | intensive
 
 # Container image
 image:
-  repository: "ghcr.io/org/my-app"
-  tag: "v1.0.0"
+  repository: "nginx"
+  tag: "latest"
   registry: "https://index.docker.io/v1/" # or "https://ghcr.io"
   username: "" # leave empty if public image
   password: ""
 
 # Probes
 healthCheck:
-  path: "/healthz"
+  path: "/"
 
 # Service
 protocol: "TCP"
-port: 8080
+port: 80
 
 # Secret key/values injected into the app
 environmentVariables:
-  DB_HOST: "db"
-  DB_PORT: "5432"
-  DB_USER: "user"
-  DB_PASS: "pass"
