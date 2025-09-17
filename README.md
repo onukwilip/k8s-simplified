@@ -81,7 +81,8 @@ Think of it like this:
    - Saves you money when idle
    - Stays online without downtime
 
-It’s like Vercel/Render… but you’re in control of the cloud 🌩️.
+That’s it! 🎉 No YAML, no Kubernetes knowledge needed.
+It’s like Vercel/Render…but you’re in control of the cloud 😃.
 
 ---
 
@@ -104,54 +105,6 @@ Together, these provide:
 
 ---
 
-## 🧪 Proof of Concept
-
-To test the idea, we started with:
-
-- ✅ A Minikube cluster
-- ✅ Installed ArgoCD
-- ✅ Built a Node.js + TypeScript Web API that talks to ArgoCD
-- ✅ Successfully deployed an app on Kubernetes using **just the API** 🎉
-
-Now, the Helm Chart automates everything: Deployments, scaling, secrets, networking, and high availability.
-
----
-
-## 🚀 Roadmap
-
-- [x] Web API (Node.js + TS)
-- [x] Helm Chart with autoscaling + secrets + high availability
-- [ ] Support for deploying and managing databases
-- [ ] CI/CD pipeline to auto-create the cluster on YOUR OWN Google Cloud infrastructure
-- [ ] Frontend UI for an even smoother developer experience
-- [ ] Multi-cloud support (AWS, Azure, etc.)
-- [ ] Open source contributions (Hacktoberfest incoming 😉🎁)
-
----
-
-## 🤝 Contributing
-
-We’d love your input! The project will be open for contributions soon.  
-Whether you want to improve the Helm Chart, add more app types, or build UI features — you’re welcome here 💜.
-
-Stay tuned for repo updates and Hacktoberfest support 🏷️.
-
----
-
-## 📍 Links
-
-- 📦 Helm Chart Package: [k8s-simplified on GitHub Packages](https://github.com/onukwilip/k8s-simplified/pkgs/container/k8s-simplified%2Fk8s-simplified)
-- 🧑‍💻 Repo: [Here](https://github.com/onukwilip/k8s-simplified)!
-
----
-
-### 🎯 Goal
-
-Make **Kubernetes invisible** for developers, startups, and solopreneurs —  
-so they can deploy production-ready apps on their own cloud, without the headaches of learning infrastructure.
-
----
-
 ## 🖥️ App Sizes
 
 To make resource allocation simple, `k8s-simplified` defines **six preset application sizes**:
@@ -167,28 +120,23 @@ To make resource allocation simple, `k8s-simplified` defines **six preset applic
 
 ---
 
-## 🔄 How It Works
+## 🧪 Proof of Concept
 
-1. Developers push their app image and configs.
-2. They define:
-   - App image
-   - Environment variables
-   - App size (`dev`, `medium`, `large`, etc.)
-3. The **Web API** (powered by Node.js + TypeScript) communicates with **ArgoCD**.
-4. ArgoCD uses the **Helm Chart** to deploy the app to the Kubernetes cluster.
+To test the idea, we started with:
 
-That’s it! 🎉 No YAML, no Kubernetes knowledge needed.
+- ✅ A Minikube cluster
+- ✅ Installed ArgoCD
+- ✅ Built a Node.js + TypeScript Web API that talks to ArgoCD
+- ✅ Successfully deployed an app on Kubernetes using **just the API** 🎉
+
+Now, the Helm Chart automates everything: Deployments, scaling, secrets, networking, and high availability.
 
 ---
 
-## 🧪 Proof of Concept
+### 🎯 Goal
 
-We’ve already validated the approach:
-
-- ✅ Deployed on **Minikube**
-- ✅ Installed **ArgoCD**
-- ✅ Built a **Node.js Web API** to communicate with ArgoCD
-- ✅ Successfully created & deployed apps on Kubernetes via the API
+Make **Kubernetes invisible** for developers, startups, and solopreneurs —  
+so they can deploy production-ready apps on their own cloud, without the headaches of learning infrastructure.
 
 ---
 
@@ -221,14 +169,22 @@ Ways to contribute:
 
 ---
 
-## 📅 Roadmap
+## 🚗 Roadmap
 
-- [x] Web API (Node.js + TypeScript) to talk to ArgoCD
-- [x] Helm Chart with Deployment, Service, HPA, VPA, Secrets, PDB
-- [ ] GitHub Actions pipeline to bootstrap clusters
-- [ ] Frontend UI for easier interaction
+- [x] Web API (Node.js + TS)
+- [x] Helm Chart with autoscaling + secrets + high availability
+- [ ] Support for deploying and managing databases
+- [ ] CI/CD pipeline to auto-create the cluster on YOUR OWN Google Cloud infrastructure
+- [ ] Frontend UI for an even smoother developer experience
 - [ ] Multi-cloud support (AWS, Azure, etc.)
-- [ ] Community contributions & extensions
+- [ ] Open source contributions (Hacktoberfest incoming 😉🎁)
+
+---
+
+## 📍 Links
+
+- 📦 Helm Chart Package: [k8s-simplified on GitHub Packages](https://github.com/onukwilip/k8s-simplified/pkgs/container/k8s-simplified%2Fk8s-simplified)
+- 🧑‍💻 Repo: [Here](https://github.com/onukwilip/k8s-simplified)!
 
 ---
 
