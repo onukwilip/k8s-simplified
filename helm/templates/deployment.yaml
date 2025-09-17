@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: "{{ .Values.name }}-deployment"
+    labels: {{ .Values.name }}
+    namespace: {{ .Values.environment }}
+spec:
+    {{- if .Values.highAvailability }}
+    replicas: 2
+    {{- else }}
+    replicas: 1
+    {{- end }}
+    selector:
+        matchLabels:
+            app: "{{ .Values.name }}"
+        template:
+            metadata:
+                labels:
+                    app: "{{ .Values.name }}"
+            spec:
+                imagePullSecrets:
+                        - name: "{{ .Values.name }}-image-secret"
+                containers:
+                    - name: "{{ .Values.name }}-container"
+                      image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+                      imagePullPolicy: Always
+                      envFromSecretRef:
+                        name: "{{ .Values.name }}-secret"
+                      readinessProbe:
+                        httpGet:
+                            path: {{ .Values.healthCheck.path }}
+                            port: {{ .Values.healthCheck.port }}
+                        initialDelaySeconds: 60
+                        periodSeconds: 10
+                        failureThreshold: 5
+                      livenessProbe:
+                        httpGet:
+                            path: {{ .Values.healthCheck.path }}
+                            port: {{ .Values.healthCheck.port }}
+                        initialDelaySeconds: 30
+                        periodSeconds: 10
+                        failureThreshold: 5
+                      resources:
+                        {{- if eq .Values.appSize "dev" }}
+                        requests:
+                            memory: 100Mi
+                            cpu: 20m
+                        {{- else if eq .Values.appSize "small"}}
+                        requests:
+                            memory: 256Mi
+                            cpu: 100m
+                        limits:
+                            memory: 512Mi
+                            cpu: 200m
+                        {{- else if eq .Values.appSize "medium" }}
+                        requests:
+                            memory: 512Mi
+                            cpu: 200m
+                        limits:
+                            memory: 1Gi
+                            cpu: 400m
+                        {{- else if eq .Values.appSize "large" }}
+                        requests:
+                            memory: 1Gi
+                            cpu: 500m
+                        limits:
+                            memory: 2Gi
+                            cpu: 1
+                        {{- else if eq .Values.appSize "heavy" }}
+                        requests:
+                            memory: 2Gi
+                            cpu: 1
+                        limits:
+                            memory: 8Gi
+                            cpu: 2
+                        {{- else if eq .Values.appSize "intensive" }}
+                        requests:
+                            memory: 8Gi
+                            cpu: 2
+                        limits:
+                            memory: 16Gi
+                            cpu: 4
+                        {{- end }}
+                        

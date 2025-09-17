@@ -1,0 +1,14 @@
+{{- if .Values.highAvailability }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+    name: "{{ .Values.name }}-pdb"
+    namespace: {{ .Values.environment }}
+    labels:
+        app: {{ .Values.name }}
+spec:
+    selector:
+        matchLabels:
+            app: "{{ .Values.name }}"
+    minAvailable: 1
+{{- end }}

@@ -1,0 +1,31 @@
+# App identity
+name: "my-app"
+environment: "default" # namespace
+
+# Availability and sizing
+highAvailability: false # true -> 2 replicas, PDB enabled, HPA min=2
+appSize: "small" # dev | small | medium | large | heavy | intensive
+
+# Container image
+image:
+  repository: "ghcr.io/org/my-app"
+  tag: "v1.0.0"
+  registry: "https://index.docker.io/v1/" # or "https://ghcr.io"
+  username: "" # leave empty if public image
+  password: ""
+
+# Probes
+healthCheck:
+  path: "/healthz"
+  port: 8080
+
+# Service
+protocol: "TCP"
+port: 8080
+
+# Secret key/values injected into the app
+environmentVariables:
+  DB_HOST: "db"
+  DB_PORT: "5432"
+  DB_USER: "user"
+  DB_PASS: "pass"
